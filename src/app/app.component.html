@@ -3,4 +3,7 @@
   <h1>
     Welcome to vecino-vigía!
   </h1>
+  <button (click)="fcm.getPermission();">Solicitar Permiso</button><br><br>
+  <button (click)="fcm.sub('alerts');">Subscribir</button><br><br>
+  <button (click)="fcm.unsub('alerts');">Desubscribir</button>
 <router-outlet></router-outlet>
