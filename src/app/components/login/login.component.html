@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h1 class="mb-3 font-weight-normal" *ngIf="!isError">Login</h1>
+                    <div *ngIf="isError" class="alert alert-danger" role="alert">
+                        Datos incorrectos!
+                    </div>
+                    <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Correo" type="email" name="correo" id="correo"                                 required [(ngModel)]="user.correo">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Contraseña" type="password" name="pass"
+                                #pass="ngModel" id="pass" required minlength="6" [(ngModel)]="user.pass">
+                        </div>
+                        <div *ngIf="(pass.touched || pass.dirty) && !pass.valid" class="alert alert-danger" role="alert">
+                           <div *ngIf= "pass.errors.required">Contraseña vacia</div>
+                           <div *ngIf= "pass.errors.minlength">Minimo 6 digitos</div>
+                        </div>
+                        <button  type="submit" class="btn btn-lg btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
