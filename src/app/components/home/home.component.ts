@@ -39,8 +39,4 @@ export class HomeComponent implements OnInit {
     this.vecinoHelp.addAlert(this.vecinoDataRef);
   }
 
-  outLogin() {
-    this.authService.cerrarSession();
-  }
-
 }
