@@ -1,9 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to vecino-vigía!
-  </h1>
-  <button (click)="fcm.getPermission();">Solicitar Permiso</button><br><br>
-  <button (click)="fcm.sub('alerts');">Subscribir</button><br><br>
+  <button (click)="fcm.getPermission();">Solicitar Permiso</button>
+  <button (click)="fcm.sub('alerts');">Subscribir</button>
   <button (click)="fcm.unsub('alerts');">Desubscribir</button>
 <router-outlet></router-outlet>

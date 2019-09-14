@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireStorageModule} from '@angular/fire/storage';
+import { AngularFirestore} from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule} from '@angular/fire/auth';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
@@ -34,6 +35,7 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule
   ],
   providers: [AngularFireFunctions,
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })

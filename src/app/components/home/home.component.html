@@ -1,2 +1,5 @@
-<p>home works!</p>
-<button class="btn" (click)='outLogin();'>Cerrar session</button>
+<div *ngIf="vecinoDataRef" class="section">
+    <h2> Bienvenido {{ vecinoDataRef.nombre }}</h2>
+    <img src="../../../assets/imagenes/help3.png" (click)="help();"><br>
+    <button class="btn btn-outline-dark mt-4" (click)="outLogin();">Cerrar session</button>
+</div>
