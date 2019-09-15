@@ -11,6 +11,7 @@ import { VecinoIntf } from '../../models/VecinoIntf';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  private modalVecino = '';
   private vecinoDataRef = {} as VecinoIntf;
 
   constructor(
@@ -28,9 +29,11 @@ export class HomeComponent implements OnInit {
       if (auth) {
         this.vecinoHelp.vecinoUser(auth.uid).subscribe(data => {
           this.vecinoDataRef = data;
+          this.modalVecino = data.tipo;
         });
       } else {
         this.router.navigate(['login']);
+        this.modalVecino = '';
       }
     });
   }

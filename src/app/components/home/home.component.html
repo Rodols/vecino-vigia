@@ -1,4 +1,7 @@
 <div *ngIf="vecinoDataRef" class="section">
     <h2> Bienvenido {{ vecinoDataRef.nombre }}</h2>
     <img src="../../../assets/imagenes/help3.png" (click)="help();">
+    <div *ngIf="modalVecino">
+        <app-modal-vecino></app-modal-vecino>
+    </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { VecinoHelpService } from '../../services/vecino-help.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   private isLogged = false;
-  constructor(private authService: AuthService) { }
+  private tipoUser = '';
+  constructor(private authService: AuthService, private vecinoHelp: VecinoHelpService) { }
 
   ngOnInit() {
     this.getCurrentUser();
@@ -18,8 +20,12 @@ export class NavbarComponent implements OnInit {
     return this.authService.verSession().subscribe(auth => {
       if (auth) {
         this.isLogged = true;
+        this.vecinoHelp.vecinoUser(auth.uid).subscribe(data => {
+          this.tipoUser = data.tipo;
+        });
       } else {
         this.isLogged = false;
+        this.tipoUser = '';
       }
     });
   }

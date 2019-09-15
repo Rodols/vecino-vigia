@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ModalAyudaComponent } from './components/modal-ayuda/modal-ayuda.component';
+import { ModalVecinoComponent } from './components/modal-vecino/modal-vecino.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ModalAyudaComponent,
+    ModalVecinoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,54 @@
+<!-- Modal -->
+<div class="modal fade" id="addVecino" tabindex="-1" role="dialog" aria-labelledby="infoAsesoriasCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h4 class="modal-title text-warning">Registrar Vecino</h4>
+        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="card-body">
+            <form #vecinoForm="ngForm" (ngSubmit)="onSubmit(vecinoForm)">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" class="form-control" name="nombre" #nombre="ngModel"
+                    [(ngModel)]="addVecinoService.selectedVecino.nombre" placeholder="Nombre del vecino">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="idVecino">User Id</label>
+                  <input type="text" name="idVecino" #escuela="ngModel" [(ngModel)]="addVecinoService.selectedVecino.idVecino"
+                    placeholder="Id del vecino" class="form-control">
+                </div>
+              </div>
+              <div class="row">
+                  <div class="form-group col-md-5">
+                      <label for="calle">Calle</label>
+                      <input type="text" name="calle" #escuela="ngModel" [(ngModel)]="addVecinoService.selectedVecino.calle"
+                        placeholder="Nombre de la calle" class="form-control">
+                    </div>
+                <div class="form-group col-md-3">
+                  <label for="casa">Numero</label>
+                  <input type="text" name="casa" #casa="ngModel" [(ngModel)]="addVecinoService.selectedVecino.casa"
+                    placeholder="Numero de casa" class="form-control">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="celular">Celular</label>
+                  <input type="text" name="celular" #celular="ngModel"
+                    [(ngModel)]="addVecinoService.selectedVecino.celular" placeholder="Celular" class="form-control">
+                </div>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary mt-2" data-whatever="@getbootstrap">Registrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
