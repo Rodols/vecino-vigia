@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-
-import { VecinoHelpService } from '../../services/vecino-help.service';
+import { AlertasService } from '../../services/alertas.service';
 import { VecinoIntf } from '../../models/VecinoIntf';
+import { AlertIntf } from '../../models/AlertIntf';
+import { Observable } from 'rxjs/internal/Observable';
+
 
 @Component({
   selector: 'app-home',
@@ -11,35 +13,43 @@ import { VecinoIntf } from '../../models/VecinoIntf';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private modalVecino = '';
+  private tipoUser = '';
   private vecinoDataRef = {} as VecinoIntf;
+  public ultimaAlerta = {} as AlertIntf;
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private vecinoHelp: VecinoHelpService) {
+    private authService: AuthService, private router: Router,
+    private alertsService: AlertasService) {
   }
 
   ngOnInit() {
     this.getCurrentUser();
+    this.ultimaActivacion();
   }
 
   getCurrentUser() {
     return this.authService.verSession().subscribe(auth => {
       if (auth) {
-        this.vecinoHelp.vecinoUser(auth.uid).subscribe(data => {
+        this.alertsService.vecinoUser(auth.uid).subscribe(data => {
           this.vecinoDataRef = data;
-          this.modalVecino = data.tipo;
+          this.tipoUser = data.tipo;
         });
       } else {
         this.router.navigate(['login']);
-        this.modalVecino = '';
+        this.tipoUser = '';
+        this.ultimaAlerta = {};
       }
     });
   }
 
   help() {
-    this.vecinoHelp.addAlert(this.vecinoDataRef);
+    this.alertsService.addAlert(this.vecinoDataRef);
+  }
+
+  ultimaActivacion() {
+    this.alertsService.getAlert().subscribe(activada => {
+      this.ultimaAlerta = activada[0];
+    });
   }
 
 }

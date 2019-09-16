@@ -1,7 +1,18 @@
-<div *ngIf="vecinoDataRef" class="section">
-    <h2> Bienvenido {{ vecinoDataRef.nombre }}</h2>
-    <img src="../../../assets/imagenes/help3.png" (click)="help();">
-    <div *ngIf="modalVecino">
+<div *ngIf="vecinoDataRef">
+    <div class="card text-center  col-xs-12 col-sm-6 col-md-6 mx-auto">
+        <div class="card-header bg-dark">
+            <h4 class="card-title  text-danger">Ultima Alerta! <br>
+                {{ultimaAlerta.fecha | date: 'dd-MMM-y hh:mm a'}}</h4>
+        </div>
+        <div class="card-body ">
+            <h5 class="card-text "> {{ultimaAlerta.nombre}} necesita tu ayuda su dirección es {{ultimaAlerta.calle}}
+                #{{ultimaAlerta.casa}} y su celular {{ultimaAlerta.celular}} </h5>
+        </div>
+    </div>
+    <img title="Presiona para pedir ayuda" src="../../../assets/imagenes/help3.png" (click)="help();">
+    <div *ngIf="tipoUser == 'admin'">
         <app-modal-vecino></app-modal-vecino>
     </div>
+    <h6> Hola {{ vecinoDataRef.nombre }} necesitas ayuda presiona el boton <span class="help">help</span></h6>
+    <app-modal-alertas></app-modal-alertas>
 </div>

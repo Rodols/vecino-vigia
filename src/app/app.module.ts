@@ -19,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ModalAyudaComponent } from './components/modal-ayuda/modal-ayuda.component';
 import { ModalVecinoComponent } from './components/modal-vecino/modal-vecino.component';
+import { ModalAlertasComponent } from './components/modal-alertas/modal-alertas.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ModalVecinoComponent } from './components/modal-vecino/modal-vecino.com
     HomeComponent,
     NavbarComponent,
     ModalAyudaComponent,
-    ModalVecinoComponent
+    ModalVecinoComponent,
+    ModalAlertasComponent
   ],
   imports: [
     BrowserModule,

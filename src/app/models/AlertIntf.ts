@@ -3,5 +3,6 @@ export interface AlertIntf {
     calle?: string;
     casa?: string;
     celular?: string;
+    fecha?: any;
     tipo?: string;
 }

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-expand-xs navbar-dark bg-dark">
     <a class="navbar-brand" href="home">
         <img src="../../../assets/imagenes/help3.png" width="30" height="30" class="d-inline-block align-top">
-        Alarma-Vecinal
+        Vecino-Vigía
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +11,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" *ngIf="isLogged">
                 <button type="button" class="btn btn-outline-danger ml-3 mt-1" data-toggle="modal"
-                    data-target="#infoAlertas">Alertas</button>
+                    title="Historial de alertas" data-target="#infoAlertas">Alertas</button>
             </li>
             <li class="nav-item" *ngIf="tipoUser == 'admin'">
                 <button type="button" class="btn btn-outline-light ml-3 mt-1" data-toggle="modal"
@@ -19,7 +19,7 @@
             </li>
         </ul>
         <div *ngIf="isLogged">
-            <button class="btn btn-outline-warning mt-1" (click)="outLogin();">Salir</button>
+            <button class="btn btn-outline-warning mt-1" title="Cerrar Session" (click)="outLogin();">Salir</button>
         </div>
         <div *ngIf="!isLogged">
             <button type="button" class="btn btn-outline-warning" data-toggle="modal"
