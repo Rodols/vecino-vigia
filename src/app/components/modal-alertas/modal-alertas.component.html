@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-dark">
-                <h5 class="modal-title text-danger">Historial de alertas</h5>
+                <h5 class="modal-title text-danger">Historial de Alertas</h5>
                 <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,16 +14,17 @@
                     <div class="card-body">
                         <table class="table table-sm table-hover">
                             <tbody>
-                                <tr>
+                                <tr class="bg-dark">
                                     <th class="alertsTittle">Vecino</th>
                                     <th class="alertsTittle">Dirección</th>
                                     <th class="alertsTittle">Fecha</th>
                                 </tr>
                                 <tr *ngFor="let alert of alertsList">
                                     <th id="nombreVecino" class="mt-2"><span>{{alert.nombre}}</span>
-                                    <br> {{alert.celular}}</th>
+                                        <br> {{alert.celular}}</th>
                                     <td class="mt-2">{{alert.calle}} #{{alert.casa}} </td>
-                                    <td class="mt-2">{{alert.fecha | date: 'dd-MMM-y'}} <br>{{alert.fecha | date: 'hh:mm:ss a' }}</td>
+                                    <td class="mt-2">{{alert.fecha | date: 'dd-MMM-y'}}
+                                        <br>{{alert.fecha | date: 'hh:mm:ss a' }}</td>
                                 </tr>
                             </tbody>
                         </table>

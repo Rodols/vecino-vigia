@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   private tipoUser = '';
   private vecinoDataRef = {} as VecinoIntf;
   public ultimaAlerta = {} as AlertIntf;
+  public fechaDeHoy: any;
 
   constructor(
     private authService: AuthService, private router: Router,
