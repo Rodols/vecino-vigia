@@ -4,6 +4,7 @@ import { AlertIntf } from '../models/AlertIntf';
 import { VecinoIntf } from '../models/VecinoIntf';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AlertasService {
   private vecinoDoc: AngularFirestoreDocument<VecinoIntf>;
   vecino: Observable<VecinoIntf>;
 
-  constructor(private afs: AngularFirestore, ) {
+  constructor(private afs: AngularFirestore, private toastr: ToastrService) {
     this.alertCollection = afs.collection<AlertIntf>('alerts', ref => ref.orderBy('fecha', 'desc').limit(1));
     this.alertsCollection = afs.collection<AlertIntf>('alerts', ref => ref.orderBy('fecha', 'desc'));
   }
@@ -30,7 +31,8 @@ export class AlertasService {
 
   addAlert(alert: AlertIntf) {
     alert.fecha = (new Date()).getTime();
-    this.alertCollection.add(alert);
+    this.alertCollection.add(alert).then(
+      () => this.toastr.success( 'Alerta Activada'));
   }
 
 

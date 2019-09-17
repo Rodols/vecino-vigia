@@ -21,6 +21,9 @@ import { ModalAyudaComponent } from './components/modal-ayuda/modal-ayuda.compon
 import { ModalVecinoComponent } from './components/modal-vecino/modal-vecino.component';
 import { ModalAlertasComponent } from './components/modal-alertas/modal-alertas.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { ModalAlertasComponent } from './components/modal-alertas/modal-alertas.
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    AngularFireStorageModule,
+    ToastrModule.forRoot()
   ],
   providers: [AngularFireFunctions,
     AngularFirestore

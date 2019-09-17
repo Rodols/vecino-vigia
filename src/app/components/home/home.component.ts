@@ -6,7 +6,6 @@ import { VecinoIntf } from '../../models/VecinoIntf';
 import { AlertIntf } from '../../models/AlertIntf';
 import { Observable } from 'rxjs/internal/Observable';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
