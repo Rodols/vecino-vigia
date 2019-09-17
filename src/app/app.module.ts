@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireStorageModule} from '@angular/fire/storage';
-import { AngularFirestore} from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireFunctions } from '@angular/fire/functions';
 
@@ -23,6 +23,7 @@ import { ModalAlertasComponent } from './components/modal-alertas/modal-alertas.
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { timeout } from 'rxjs/operators';
 
 
 @NgModule({
@@ -46,7 +47,9 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     BrowserAnimationsModule,
     AngularFireStorageModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      autoDismiss: false,
+    })
   ],
   providers: [AngularFireFunctions,
     AngularFirestore

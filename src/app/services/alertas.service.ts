@@ -32,7 +32,7 @@ export class AlertasService {
   addAlert(alert: AlertIntf) {
     alert.fecha = (new Date()).getTime();
     this.alertCollection.add(alert).then(
-      () => this.toastr.success( 'Alerta Activada'));
+      () => this.toastr.success( 'Alerta Activada', 'notificacion enviada a tus vecinos'));
   }
 
 

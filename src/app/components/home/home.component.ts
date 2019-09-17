@@ -5,6 +5,7 @@ import { AlertasService } from '../../services/alertas.service';
 import { VecinoIntf } from '../../models/VecinoIntf';
 import { AlertIntf } from '../../models/AlertIntf';
 import { Observable } from 'rxjs/internal/Observable';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +17,11 @@ export class HomeComponent implements OnInit {
   private vecinoDataRef = {} as VecinoIntf;
   public ultimaAlerta = {} as AlertIntf;
   public fechaDeHoy: any;
+  public verAlertaDeHoy: boolean;
 
   constructor(
     private authService: AuthService, private router: Router,
-    private alertsService: AlertasService) {
+    private alertsService: AlertasService, private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -48,8 +50,25 @@ export class HomeComponent implements OnInit {
 
   ultimaActivacion() {
     this.alertsService.getAlert().subscribe(activada => {
-      this.ultimaAlerta = activada[0];
+      if (activada[0]) {
+        this.ultimaAlerta = activada[0];
+        this.verMsgDelDia(this.ultimaAlerta.fecha);
+        this.toastr.info('Hoy fue activada la alarma revisa tus alertas', 'Alerta del Día',
+        { timeOut: 0, extendedTimeOut: 0, closeButton: true } );
+      }
     });
+  }
+
+  verMsgDelDia(diaUltimaAlerta) {
+    const alertDate = new Date(diaUltimaAlerta);
+    const alertFecha = alertDate.getDate() + '-' + (alertDate.getMonth() + 1) + '-' + alertDate.getFullYear();
+    const hoy = new Date();
+    const hoyFecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+    if (alertFecha === hoyFecha) {
+      this.verAlertaDeHoy = true;
+    } else {
+      this.verAlertaDeHoy = false;
+    }
   }
 
 }

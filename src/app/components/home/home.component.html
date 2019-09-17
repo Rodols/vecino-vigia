@@ -1,5 +1,5 @@
-<div *ngIf="vecinoDataRef">{{fechaDeHoy}}
-    <div class="card text-center  col-xs-12 col-sm-6 col-md-6 mx-auto">
+<div class="section">
+    <div *ngIf="verAlertaDeHoy && ultimaAlerta " class="card text-center  col-xs-12 col-sm-6 col-md-6 mx-auto">
         <div class="card-header bg-dark">
             <h4 class="card-title  text-danger">Ultima Alerta! <br>
                 {{ultimaAlerta.fecha | date: 'dd-MMM-y hh:mm a'}}</h4>
@@ -10,9 +10,9 @@
         </div>
     </div>
     <img title="Presiona para pedir ayuda" src="../../../assets/imagenes/help3.png" (click)="help();">
+    <h6> Hola {{ vecinoDataRef.nombre }} necesitas ayuda presiona el boton <span class="help">help</span></h6>
     <div *ngIf="tipoUser == 'admin'">
         <app-modal-vecino></app-modal-vecino>
     </div>
-    <h6> Hola {{ vecinoDataRef.nombre }} necesitas ayuda presiona el boton <span class="help">help</span></h6>
     <app-modal-alertas></app-modal-alertas>
 </div>

@@ -40,7 +40,9 @@ export class FcmService {
     this.afMessaging.messages.subscribe(
       (payload) => {
         console.log('new message received.', payload);
-        this.toastr.warning('Alarma Activada', 'revisa tus alertas');
+        this.toastr.warning
+        ('Revisa tus alertas alguien necesita ayuda', 'Alarma Activada',
+         { timeOut: 0, extendedTimeOut: 0, closeButton: true });
         this.currentMessage.next(payload);
       });
   }
