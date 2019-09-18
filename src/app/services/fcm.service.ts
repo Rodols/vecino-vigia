@@ -15,7 +15,7 @@ export class FcmService {
   token;
 
   constructor(private afMessaging: AngularFireMessaging, private fun: AngularFireFunctions,
-    private toastr: ToastrService ) {
+    private toastr: ToastrService) {
     this.afMessaging.messaging.subscribe(
       (_messaging) => {
         _messaging.onMessage = _messaging.onMessage.bind(_messaging);
@@ -38,12 +38,13 @@ export class FcmService {
 
   receiveMessage() {
     this.afMessaging.messages.subscribe(
-      (payload) => {
-        console.log('new message received.', payload);
+      (message) => {
+        let notify: any;
+        notify = (Object.values(message))[2];
         this.toastr.warning
-        ('Revisa tus alertas alguien necesita ayuda', 'Alarma Activada',
-         { timeOut: 0, extendedTimeOut: 0, closeButton: true });
-        this.currentMessage.next(payload);
+          (notify.body, 'Alarma Activada',
+            { timeOut: 0, extendedTimeOut: 0, closeButton: true });
+        this.currentMessage.next(message);
       });
   }
 

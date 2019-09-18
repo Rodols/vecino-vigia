@@ -53,8 +53,6 @@ export class HomeComponent implements OnInit {
       if (activada[0]) {
         this.ultimaAlerta = activada[0];
         this.verMsgDelDia(this.ultimaAlerta.fecha);
-        this.toastr.info('Hoy fue activada la alarma revisa tus alertas', 'Alerta del Día',
-        { timeOut: 0, extendedTimeOut: 0, closeButton: true } );
       }
     });
   }
@@ -66,6 +64,8 @@ export class HomeComponent implements OnInit {
     const hoyFecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
     if (alertFecha === hoyFecha) {
       this.verAlertaDeHoy = true;
+      this.toastr.info('Hoy fue activada la alarma revisa tus alertas', 'Alerta del Día',
+        { timeOut: 0, extendedTimeOut: 0, closeButton: true });
     } else {
       this.verAlertaDeHoy = false;
     }
