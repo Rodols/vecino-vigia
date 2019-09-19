@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { messaging } from 'firebase';
 import { ToastrService } from 'ngx-toastr';
-import { Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +11,10 @@ export class FcmService {
   currentMessage = new BehaviorSubject(null);
   token;
 
-  constructor(private afMessaging: AngularFireMessaging, private fun: AngularFireFunctions,
-    private toastr: ToastrService) {
-    this.afMessaging.messaging.subscribe(
-      (_messaging) => {
-        _messaging.onMessage = _messaging.onMessage.bind(_messaging);
-        _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
-      }
-    )
-  }
+  constructor(
+    private afMessaging: AngularFireMessaging,
+    private fun: AngularFireFunctions,
+    private toastr: ToastrService) { }
 
   getPermission() {
     this.afMessaging.requestToken.subscribe(

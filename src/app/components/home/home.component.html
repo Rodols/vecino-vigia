@@ -1,4 +1,6 @@
 <div class="section">
+        <button (click)="fcm.sub('alerts');">Subscribir</button>
+        <button (click)="fcm.unsub('alerts');">Desubscribir</button>
     <div *ngIf="verAlertaDeHoy && ultimaAlerta " class="card text-center  col-xs-12 col-sm-6 col-md-6 mx-auto">
         <div class="card-header bg-dark">
             <h4 class="card-title  text-danger">Ultima Alerta! <br>

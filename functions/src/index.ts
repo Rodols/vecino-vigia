@@ -34,10 +34,14 @@ export const sendOnFirestoreCreate = functions.firestore
         const payload: admin.messaging.Message = {
             notification,
             webpush: {
+                "headers": {
+                    "Urgency": "high"
+                  },
                 notification: {
                     icon: 'https://p7.hiclipart.com/preview/627/944/843/emergency-safety-kill-switch-panic-button-push-button-emergency.jpg',
-                    "click_action": "http://localhost:4200/"
-                }
+                    click_action: "http://localhost:4200/",
+                    requireInteraction: true
+                },
             },
             topic: 'alerts'
         };

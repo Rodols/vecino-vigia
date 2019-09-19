@@ -9,7 +9,7 @@ import { FcmService } from './services/fcm.service';
 export class AppComponent {
   title = 'vecino-vigia';
 
-  constructor(public fcm: FcmService){
+  constructor(private fcm: FcmService) {
     fcm.receiveMessage();
   }
 }

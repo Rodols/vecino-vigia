@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { AlertasService } from '../../services/alertas.service';
 import { VecinoIntf } from '../../models/VecinoIntf';
 import { AlertIntf } from '../../models/AlertIntf';
-import { Observable } from 'rxjs/internal/Observable';
 import { ToastrService } from 'ngx-toastr';
+import { FcmService } from '../../services/fcm.service';
 
 @Component({
   selector: 'app-home',
@@ -21,11 +21,13 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private authService: AuthService, private router: Router,
-    private alertsService: AlertasService, private toastr: ToastrService) {
+    private alertsService: AlertasService, private toastr: ToastrService,
+    private fcm: FcmService) {
   }
 
   ngOnInit() {
     this.getCurrentUser();
+    this.fcm.getPermission();
     this.ultimaActivacion();
   }
 
@@ -64,8 +66,7 @@ export class HomeComponent implements OnInit {
     const hoyFecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
     if (alertFecha === hoyFecha) {
       this.verAlertaDeHoy = true;
-      this.toastr.info('Hoy fue activada la alarma revisa tus alertas', 'Alerta del Día',
-        { timeOut: 0, extendedTimeOut: 0, closeButton: true });
+      this.toastr.info('Hoy fue activada la alarma revisa tus alertas', 'Alerta del Día');
     } else {
       this.verAlertaDeHoy = false;
     }

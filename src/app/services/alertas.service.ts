@@ -32,9 +32,8 @@ export class AlertasService {
   addAlert(alert: AlertIntf) {
     alert.fecha = (new Date()).getTime();
     this.alertCollection.add(alert).then(
-      () => this.toastr.success( 'Alerta Activada', 'notificacion enviada a tus vecinos'));
+      () => this.toastr.success('Alerta Activada', 'notificacion enviada a tus vecinos'));
   }
-
 
   getAllAlerts(): Observable<AlertIntf[]> {
     this.alerts = this.alertsCollection.snapshotChanges().pipe(
