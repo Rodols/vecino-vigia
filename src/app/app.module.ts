@@ -24,6 +24,7 @@ import { ModalAlertasComponent } from './components/modal-alertas/modal-alertas.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { timeout } from 'rxjs/operators';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { timeout } from 'rxjs/operators';
     AngularFireStorageModule,
     ToastrModule.forRoot({
       autoDismiss: false,
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AngularFireFunctions,
     AngularFirestore
