@@ -38,7 +38,7 @@ export const sendOnFirestoreCreate = functions.firestore
                     "Urgency": "high"
                   },
                 notification: {
-                    icon: 'https://p7.hiclipart.com/preview/627/944/843/emergency-safety-kill-switch-panic-button-push-button-emergency.jpg',
+                    icon: 'https://firebasestorage.googleapis.com/v0/b/vecinosvigia.appspot.com/o/ic_launcher.png?alt=media&token=7f8ec432-1e35-469e-96be-a6582eab9a6a',
                     click_action: "http://localhost:4200/",
                     requireInteraction: true
                 },
