@@ -55,4 +55,8 @@ export class AlertasService {
     return this.alert;
   }
 
+  updateTokenUser(idVecino, token) {
+    this.afs.collection('vecinos').doc(idVecino).update({ tokenUser: token });
+  }
+
 }

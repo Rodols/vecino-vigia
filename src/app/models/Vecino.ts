@@ -5,4 +5,5 @@ export class Vecino {
     casa: string;
     celular: string;
     tipo: string;
+    tokenUser: string;
 }

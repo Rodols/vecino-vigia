@@ -1,7 +1,5 @@
 <div class="section">
-        <button (click)="fcm.sub('alerts');">Subscribir</button>
-        <button (click)="fcm.unsub('alerts');">Desubscribir</button>
-    <div *ngIf="verAlertaDeHoy && ultimaAlerta " class="card text-center  col-xs-12 col-sm-6 col-md-6 mx-auto">
+    <div *ngIf="verAlertaDeHoy && ultimaAlerta " class="card text-center mt-4 col-xs-12 col-sm-6 col-md-6 mx-auto">
         <div class="card-header bg-dark">
             <h4 class="card-title  text-danger">Ultima Alerta! <br>
                 {{ultimaAlerta.fecha | date: 'dd-MMM-y hh:mm a'}}</h4>
@@ -11,8 +9,8 @@
                 #{{ultimaAlerta.casa}} y su celular {{ultimaAlerta.celular}} </h5>
         </div>
     </div>
-    <img title="Presiona para pedir ayuda" src="../../../assets/imagenes/help3.png" (click)="help();">
-    <h6> Hola {{ vecinoDataRef.nombre }} necesitas ayuda presiona el boton <span class="help">help</span></h6>
+    <img class="mt-3 mb-2" title="Presiona para pedir ayuda" src="../../../assets/imagenes/help3.png" (click)="help();">
+    <h6> {{ vecinoDataRef.nombre }} necesitas ayuda presiona el boton <span class="help">HELP.</span></h6>
     <div *ngIf="tipoUser == 'admin'">
         <app-modal-vecino></app-modal-vecino>
     </div>

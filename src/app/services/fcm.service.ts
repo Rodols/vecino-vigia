@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import { AlertasService } from '../services/alertas.service';
 import { BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
@@ -14,18 +15,31 @@ export class FcmService {
   constructor(
     private afMessaging: AngularFireMessaging,
     private fun: AngularFireFunctions,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private alertsService: AlertasService) { }
 
-  getPermission() {
+  getPermission(userId, userToken) {
     this.afMessaging.requestToken.subscribe(
       (token) => {
         this.token = token;
-        console.log(token);
+        if (userToken !== token) {
+          this.updateToken(userId, userToken);
+        }
       },
       (err) => {
         console.error('Unable to get permission to notify.', err);
       }
     );
+  }
+
+  updateToken(userId, userToken) {
+    if (userToken) {
+      console.log('existe el token');
+      this.unsub(userToken);
+    }
+    console.log('Siempre se actualiza');
+    this.alertsService.updateTokenUser(userId, this.token);
+    this.sub(this.token);
   }
 
   receiveMessage() {
@@ -40,15 +54,15 @@ export class FcmService {
       });
   }
 
-  sub(topic) {
+  sub(tokenActual) {
     this.fun
-      .httpsCallable('subscribeToTopic')({ topic, token: this.token })
+      .httpsCallable('subscribeToTopic')({ topic: 'alerts', token: tokenActual })
       .subscribe();
   }
 
-  unsub(topic) {
+  unsub(tokenAnterior) {
     this.fun
-      .httpsCallable('unsubscribeFromTopic')({ topic, token: this.token })
+      .httpsCallable('unsubscribeFromTopic')({ topic: 'alerts', token: tokenAnterior })
       .subscribe();
   }
 

@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrentUser();
-    this.fcm.getPermission();
     this.ultimaActivacion();
   }
 
@@ -37,6 +36,7 @@ export class HomeComponent implements OnInit {
         this.alertsService.vecinoUser(auth.uid).subscribe(data => {
           this.vecinoDataRef = data;
           this.tipoUser = data.tipo;
+          this.fcm.getPermission(auth.uid, data.tokenUser);
         });
       } else {
         this.router.navigate(['login']);
