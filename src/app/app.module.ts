@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
@@ -23,7 +23,7 @@ import { ModalAlertasComponent } from './components/modal-alertas/modal-alertas.
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { timeout } from 'rxjs/operators';
+import { AuthService } from './services/auth.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 
@@ -44,6 +44,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFireMessagingModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -54,7 +55,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AngularFireFunctions,
-    AngularFirestore
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

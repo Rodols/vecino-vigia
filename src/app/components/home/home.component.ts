@@ -1,29 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
-import { AlertasService } from '../../services/alertas.service';
-import { VecinoIntf } from '../../models/VecinoIntf';
-import { AlertIntf } from '../../models/AlertIntf';
-import { ToastrService } from 'ngx-toastr';
-import { FcmService } from '../../services/fcm.service';
+import { Component, OnInit } from "@angular/core";
+import { AuthService } from "../../services/auth.service";
+import { Router } from "@angular/router";
+import { AlertasService } from "../../services/alertas.service";
+import { VecinoIntf } from "../../models/VecinoIntf";
+import { AlertIntf } from "../../models/AlertIntf";
+import { ToastrService } from "ngx-toastr";
+import { FcmService } from "../../services/fcm.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  private tipoUser = '';
-  private vecinoDataRef = {} as VecinoIntf;
-  public ultimaAlerta = {} as AlertIntf;
-  public fechaDeHoy: any;
-  public verAlertaDeHoy: boolean;
+  tipoUser = "";
+  vecinoDataRef = {} as VecinoIntf;
+  ultimaAlerta = {} as AlertIntf;
+  fechaDeHoy: any;
+  verAlertaDeHoy: boolean;
 
   constructor(
-    private authService: AuthService, private router: Router,
-    private alertsService: AlertasService, private toastr: ToastrService,
-    private fcm: FcmService) {
-  }
+    private authService: AuthService,
+    private router: Router,
+    private alertsService: AlertasService,
+    private toastr: ToastrService,
+    private fcm: FcmService
+  ) {}
 
   ngOnInit() {
     this.getCurrentUser();
@@ -39,8 +41,8 @@ export class HomeComponent implements OnInit {
           this.fcm.getPermission(auth.uid, data.tokenUser);
         });
       } else {
-        this.router.navigate(['login']);
-        this.tipoUser = '';
+        this.router.navigate(["login"]);
+        this.tipoUser = "";
         this.ultimaAlerta = {};
       }
     });
@@ -61,15 +63,23 @@ export class HomeComponent implements OnInit {
 
   verMsgDelDia(diaUltimaAlerta) {
     const alertDate = new Date(diaUltimaAlerta);
-    const alertFecha = alertDate.getDate() + '-' + (alertDate.getMonth() + 1) + '-' + alertDate.getFullYear();
+    const alertFecha =
+      alertDate.getDate() +
+      "-" +
+      (alertDate.getMonth() + 1) +
+      "-" +
+      alertDate.getFullYear();
     const hoy = new Date();
-    const hoyFecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+    const hoyFecha =
+      hoy.getDate() + "-" + (hoy.getMonth() + 1) + "-" + hoy.getFullYear();
     if (alertFecha === hoyFecha) {
       this.verAlertaDeHoy = true;
-      this.toastr.info('Hoy fue activada la alarma revisa tus alertas', 'Alerta del Día');
+      this.toastr.info(
+        "Hoy fue activada la alarma revisa tus alertas",
+        "Alerta del Día"
+      );
     } else {
       this.verAlertaDeHoy = false;
     }
   }
-
 }
