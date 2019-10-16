@@ -1,0 +1,82 @@
+{
+  "configVersion": 1,
+  "timestamp": 1571200825819,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/3-es5.bfed2a4441026b3efa0e.js",
+        "/4-es2015.b58b3b5dcdc3944d15ad.js",
+        "/favicon.ico",
+        "/firebase-messaging-sw.js",
+        "/index.html",
+        "/main-es2015.f452193e93bb1de063c9.js",
+        "/main-es5.5869cd95a794a758a0d7.js",
+        "/polyfills-es2015.27661dfa98f6332c27dc.js",
+        "/polyfills-es5.7f43b971448d2fb49202.js",
+        "/runtime-es2015.59f6509a18263f74b14d.js",
+        "/runtime-es5.ab362326ba518d677d91.js",
+        "/scripts.ea9a7b51b5073e2a08c5.js",
+        "/styles.d9667f8f55462e40ff8d.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/imagenes/help1.png",
+        "/assets/imagenes/help3.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/3-es5.bfed2a4441026b3efa0e.js": "245d51ac67dee6e79f2c2daaf381e75858da74b8",
+    "/4-es2015.b58b3b5dcdc3944d15ad.js": "c6f6a8fb78726688ffb1f6ffea8683081ba56b8b",
+    "/assets/icons/icon-144x144.png": "31c7547a64928417d3323f243e01e26b6f7b4b8a",
+    "/assets/icons/icon-192x192.png": "f527f3e7a0343ca721237413c76dbfe911173365",
+    "/assets/icons/icon-72x72.png": "dc29fc9ac40e10acfca1c0e8276b957a91c3e663",
+    "/assets/icons/icon-96x96.png": "3365c11ae601ca35f99df6beecd27df209e443d1",
+    "/assets/imagenes/help1.png": "d3524e2e84ffa90d3f700ec63163fdae725a9db0",
+    "/assets/imagenes/help3.png": "f527f3e7a0343ca721237413c76dbfe911173365",
+    "/favicon.ico": "cb3148118e8597c06da2d5021101fee0155d2b35",
+    "/firebase-messaging-sw.js": "488f5f09d1caa7e7fe9420254c3826af28c90d39",
+    "/index.html": "3a36d5270ff36eba279c9c33b6b31517f2d544bd",
+    "/main-es2015.f452193e93bb1de063c9.js": "c44de4f376d2fb5262dce72092142646a24a9fa9",
+    "/main-es5.5869cd95a794a758a0d7.js": "075ed1cbf3d8bbbc5828ac1f650edf078fcead0a",
+    "/polyfills-es2015.27661dfa98f6332c27dc.js": "77f974dd2b186031cfc4f4526d96db4efcd39353",
+    "/polyfills-es5.7f43b971448d2fb49202.js": "f84a71ef6c7a788b5fe701bf2405313d7766a66d",
+    "/runtime-es2015.59f6509a18263f74b14d.js": "1279fb345c39176180b00e0090f0903532a8577a",
+    "/runtime-es5.ab362326ba518d677d91.js": "4d40e5aaa8d561cac0f19872105adbf3d08aded8",
+    "/scripts.ea9a7b51b5073e2a08c5.js": "a8a5453ceebaca214d2bd4e38ebde605f9122ca4",
+    "/styles.d9667f8f55462e40ff8d.css": "6eb11f99b8f85936806133e4d5d56a337050a6dd"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

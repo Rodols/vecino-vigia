@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/* Estilos para android*/
+body{
+    overscroll-behavior-y: contain !important; 
+}

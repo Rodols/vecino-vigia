@@ -11,7 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { AngularFireFunctions } from '@angular/fire/functions';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
@@ -24,6 +24,7 @@ import { ModalAlertasComponent } from './components/modal-alertas/modal-alertas.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './services/auth.service';
+import { FcmService } from './services/fcm.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 
@@ -49,12 +50,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     FormsModule,
     BrowserAnimationsModule,
     AngularFireStorageModule,
+    AngularFireFunctionsModule,
     ToastrModule.forRoot({
       autoDismiss: false,
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AngularFireFunctions,
+  providers: [FcmService,
     AuthService
   ],
   bootstrap: [AppComponent]

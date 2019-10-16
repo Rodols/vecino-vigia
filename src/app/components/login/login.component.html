@@ -18,8 +18,7 @@
                         </div>
                         <div *ngIf="(pass.touched || pass.dirty) && !pass.valid" class="alert alert-danger"
                             role="alert">
-                            <div *ngIf="pass.errors.required">Contraseña vacia</div>
-                            <div *ngIf="pass.errors.minlength">Minimo 6 digitos</div>
+                            <div *ngIf="pass.errors">Minimo 6 digitos</div>
                         </div>
                         <button type="submit" class="btn btn-lg btn-primary">Ingresar</button>
                     </form>
