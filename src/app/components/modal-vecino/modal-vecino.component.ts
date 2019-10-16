@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./modal-vecino.component.css']
 })
 export class ModalVecinoComponent implements OnInit {
+  selectedVecino = new Vecino();
 
   constructor(private addVecinoService: VecinoNuevoService) { }
 
@@ -27,7 +28,7 @@ export class ModalVecinoComponent implements OnInit {
   resetForm(vecinoForm: NgForm) {
     if (vecinoForm != null) {
       vecinoForm.reset();
-      this.addVecinoService.selectedVecino = new Vecino();
+      this.selectedVecino = new Vecino();
     }
   }
 

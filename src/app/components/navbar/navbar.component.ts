@@ -8,8 +8,8 @@ import { AlertasService } from '../../services/alertas.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  private isLogged = false;
-  private tipoUser = '';
+  isLogged = false;
+  tipoUser = '';
   constructor(private authService: AuthService, private alertService: AlertasService) { }
 
   ngOnInit() {

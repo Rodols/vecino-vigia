@@ -9,7 +9,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 export class VecinoNuevoService {
   citasCollection: AngularFirestoreCollection<{}>;
   vecino: Observable<{}[]>;
-  selectedVecino: Vecino = new Vecino();
 
   constructor(private afs: AngularFirestore) {
   }
