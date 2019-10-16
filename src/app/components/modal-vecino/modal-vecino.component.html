@@ -16,29 +16,29 @@
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="nombre">Nombre</label>
-                  <input type="text" class="form-control" name="nombre" #nombre="ngModel"
+                  <input type="text" class="form-control" requiered name="nombre" #nombre="ngModel"
                     [(ngModel)]="selectedVecino.nombre" placeholder="Nombre del vecino">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="idVecino">User Id</label>
-                  <input type="text" name="idVecino" #escuela="ngModel" [(ngModel)]="selectedVecino.idVecino"
-                    placeholder="Id del vecino" class="form-control">
+                  <input type="text" required name="idVecino" #escuela="ngModel" [(ngModel)]="selectedVecino.idVecino"
+                    placeholder="Uid del vecino" class="form-control">
                 </div>
               </div>
               <div class="row">
                   <div class="form-group col-md-5">
                       <label for="calle">Calle</label>
-                      <input type="text" name="calle" #escuela="ngModel" [(ngModel)]="selectedVecino.calle"
+                      <input requiered type="text" name="calle" #escuela="ngModel" [(ngModel)]="selectedVecino.calle"
                         placeholder="Nombre de la calle" class="form-control">
                     </div>
                 <div class="form-group col-md-3">
                   <label for="casa">Numero</label>
-                  <input type="text" name="casa" #casa="ngModel" [(ngModel)]="selectedVecino.casa"
+                  <input type="text" requiered name="casa" #casa="ngModel" [(ngModel)]="selectedVecino.casa"
                     placeholder="Numero de casa" class="form-control">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="celular">Celular</label>
-                  <input type="text" name="celular" #celular="ngModel"
+                  <input type="text" name="celular" required #celular="ngModel"
                     [(ngModel)]="selectedVecino.celular" placeholder="Celular" class="form-control">
                 </div>
               </div>

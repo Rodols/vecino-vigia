@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
 

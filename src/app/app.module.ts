@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule } from "@angular/fire";
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
@@ -44,9 +44,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireMessagingModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule,
-    AngularFirestoreModule,
+    AngularFirestoreModule, 
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     FormsModule,
     BrowserAnimationsModule,
     AngularFireStorageModule,
