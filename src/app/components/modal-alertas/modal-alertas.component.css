@@ -2,6 +2,24 @@ tr span{
     color: blue;
 }
 
-.alertsTittle{
-    color: red;
+
+.modal-header{
+    background-color: #212121;
+    color: whitesmoke;
 }
+
+thead{
+    background-color: #303030;
+    color: whitesmoke;
+}
+
+tbody tr:hover{
+    background-color: #d1cccc;
+    font-weight:700;
+}
+
+tbody{
+   font-weight:500;
+}
+
+

@@ -1,0 +1,33 @@
+nav{
+    background-color: #000000;
+}
+
+nav  ul li{
+    display: inline;
+    list-style: none;
+}
+
+.logo{
+    margin-right: auto;
+    margin-left: auto; 
+    font-size: 1.3em;
+    color: whitesmoke;
+    text-decoration-line: none;
+}
+
+nav ul{
+    margin-top: 5%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+nav li a{
+    margin-right: 35px;
+    color: whitesmoke;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+nav li a:hover{
+    opacity: 0.9;
+}

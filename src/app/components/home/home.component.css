@@ -2,6 +2,18 @@
     color: red;
 }
 
+.card-header{
+    background-color: #212121;
+}
+
 img{
     cursor: pointer;
+}
+
+.section{
+    margin-top: 5%;
+}
+
+h6{
+    padding-bottom: 5%;
 }

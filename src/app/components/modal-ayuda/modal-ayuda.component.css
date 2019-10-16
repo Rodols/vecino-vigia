@@ -1,3 +1,8 @@
-span{
+.modal-body span{
     color: blue;
+}
+
+.modal-header{
+    background-color: #303030;
+    color:whitesmoke;
 }
