@@ -1,33 +1,47 @@
-nav{
-    background-color: #000000;
+nav {
+  background-color: #000000;
 }
 
-nav  ul li{
-    display: inline;
-    list-style: none;
+nav ul li {
+  display: inline;
+  list-style: none;
 }
 
-.logo{
-    margin-right: auto;
-    margin-left: auto; 
-    font-size: 1.3em;
-    color: whitesmoke;
-    text-decoration-line: none;
+.logo {
+  font-size: 1.2em;
+  color: whitesmoke;
+  text-decoration-line: none;
 }
 
-nav ul{
-    margin-top: 12%;
-    margin-right: auto;
-    margin-left: auto;
+.ayuda {
+  margin-top: 12%;
 }
 
-nav li a{
-    margin-right: 35px;
-    color: whitesmoke;
-    opacity: 0.5;
-    cursor: pointer;
+.logged {
+  margin-top: 7%;
 }
 
-nav li a:hover{
-    opacity: 0.9;
+nav li a {
+  margin-right: 25px;
+  color: whitesmoke;
+  opacity: 0.5;
+  cursor: pointer;
 }
+
+nav li a:hover {
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 450px) {
+  .logo span {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 331px) {
+    .logged {
+        margin-top: -12%;
+        margin-left: 10px;
+    }
+  }
+  

@@ -6,18 +6,20 @@
                 <span> Vecino-Vigía </span>
             </a>
         </section>
-        <section >
-            <ul>
-                <li *ngIf="isLogged">
+        <section>
+            <ul class="logged" *ngIf="isLogged">
+                <li>
                     <a data-toggle="modal" title="Historial de alertas" data-target="#infoAlertas">Alertas</a>
                 </li>
                 <li *ngIf="tipoUser == 'admin'">
                     <a data-toggle="modal" data-target="#addVecino">Nuevo</a>
                 </li>
-                <li *ngIf="isLogged">
+                <li>
                     <a title="Cerrar Session" (click)="outLogin();">Salir</a>
                 </li>
-                <li *ngIf="!isLogged">
+            </ul>
+            <ul class="ayuda" *ngIf="!isLogged">
+                <li>
                     <a data-toggle="modal" data-target="#infoAyuda">¿Ayuda?</a>
                 </li>
             </ul>
