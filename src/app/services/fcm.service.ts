@@ -36,11 +36,11 @@ export class FcmService {
   updateToken(userId, userToken) {
     if (userToken) {
       console.log('existe el token');
-      this.unsub(userToken);
+      //this.unsub(userToken);
     }
     console.log('Siempre se actualiza');
     this.alertsService.updateTokenUser(userId, this.token);
-    this.sub(this.token);
+    //this.sub(this.token);
   }
 
   receiveMessage() {
