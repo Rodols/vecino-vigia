@@ -12,6 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 export class AlertasService {
   private alertCollection: AngularFirestoreCollection<AlertIntf>;
   private alertsCollection: AngularFirestoreCollection<AlertIntf>;
+  private tokensCollection: AngularFirestoreCollection<VecinoIntf>;
+  private tokens: Observable<VecinoIntf[]>;
   private alerts: Observable<AlertIntf[]>;
   private alert: Observable<AlertIntf[]>;
 
@@ -21,12 +23,23 @@ export class AlertasService {
   constructor(private afs: AngularFirestore, private toastr: ToastrService) {
     this.alertCollection = afs.collection<AlertIntf>('alerts', ref => ref.orderBy('fecha', 'desc').limit(1));
     this.alertsCollection = afs.collection<AlertIntf>('alerts', ref => ref.orderBy('fecha', 'desc'));
+    this.tokensCollection = afs.collection<VecinoIntf>('vecinos');
   }
 
   vecinoUser(id) {
     this.vecinoDoc = this.afs.doc<VecinoIntf>('vecinos/' + id);
     this.vecino = this.vecinoDoc.valueChanges();
     return this.vecino;
+  }
+
+  getTokens(): Observable<VecinoIntf[]> {
+    this.tokens = this.tokensCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as VecinoIntf;
+        return data;
+      }))
+    );
+    return this.tokens;
   }
 
   addAlert(alert: AlertIntf) {

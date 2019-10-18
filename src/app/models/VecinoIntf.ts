@@ -5,5 +5,5 @@ export interface VecinoIntf {
     casa?: string;
     celular?: string;
     tipo?: string;
-    tokenUser?: string;
+    tokenUser?: any;
 }

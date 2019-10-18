@@ -4,5 +4,5 @@ export interface AlertIntf {
     casa?: string;
     celular?: string;
     fecha?: any;
-    tipo?: string;
+    tipo?: any;
 }

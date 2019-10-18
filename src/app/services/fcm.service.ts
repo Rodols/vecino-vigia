@@ -18,6 +18,7 @@ export class FcmService {
     private toastr: ToastrService,
     private alertsService: AlertasService) { }
 
+
   getPermission(userId, userToken) {
     this.afMessaging.requestToken.subscribe(
       (token) => {

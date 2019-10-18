@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   ultimaAlerta = {} as AlertIntf;
   fechaDeHoy: any;
   verAlertaDeHoy: boolean;
+  tokenList= [];
 
   constructor(
     private authService: AuthService,
@@ -28,8 +29,20 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.getTokens();
     this.getCurrentUser();
     this.ultimaActivacion();
+  }
+
+  getTokens(){
+    this.alertsService.getTokens().subscribe(tokensVecinos => {
+      tokensVecinos.forEach((tokenVecino, index:number)=>
+        {
+          if(this.vecinoDataRef.tokenUser !== tokenVecino.tokenUser){
+            this.tokenList[index] = tokenVecino.tokenUser;
+          }
+        });
+    });
   }
 
   getCurrentUser() {
@@ -49,6 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   help() {
+    this.vecinoDataRef.tokenUser = this.tokenList;
     this.alertsService.addAlert(this.vecinoDataRef);
   }
 
