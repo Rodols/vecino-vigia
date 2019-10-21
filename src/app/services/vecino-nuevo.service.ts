@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Vecino } from '../models/Vecino';
 import { Observable } from 'rxjs/internal/Observable';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'

@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class FcmService {
   currentMessage = new BehaviorSubject(null);
   token;
+  tokenList= [];
 
   constructor(
     private afMessaging: AngularFireMessaging,
@@ -25,6 +26,8 @@ export class FcmService {
         this.token = token;
         if (userToken !== token) {
           this.updateToken(userId, userToken);
+        }else{
+          this.getTokens(userToken);
         }
       },
       (err) => {
@@ -33,13 +36,24 @@ export class FcmService {
     );
   }
 
+  getTokens(userToken){
+    this.alertsService.getTokens().subscribe(tokensVecinos => {
+       let i=0;
+      tokensVecinos.forEach((tokenVecino)=>
+        {
+          if(userToken !== tokenVecino.tokenUser){
+            this.tokenList[i] = tokenVecino.tokenUser;
+            i=i+1;
+          }
+        });
+    });
+  }
+
   updateToken(userId, userToken) {
-    if (userToken) {
-      console.log('existe el token');
+      this.alertsService.updateTokenUser(userId, this.token);
+      this.getTokens(this.token);
+     //console.log('existe el token');
       //this.unsub(userToken);
-    }
-    console.log('Siempre se actualiza');
-    this.alertsService.updateTokenUser(userId, this.token);
     //this.sub(this.token);
   }
 

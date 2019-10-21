@@ -5,4 +5,5 @@ export interface AlertIntf {
     celular?: string;
     fecha?: any;
     tipo?: any;
+    tokenUser?: any;
 }

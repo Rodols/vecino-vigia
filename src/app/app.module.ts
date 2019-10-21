@@ -23,8 +23,8 @@ import { ModalAlertasComponent } from './components/modal-alertas/modal-alertas.
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { AuthService } from './services/auth.service';
 import { FcmService } from './services/fcm.service';
+import { AuthService } from './services/auth.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 

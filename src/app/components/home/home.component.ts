@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ultimaAlerta = {} as AlertIntf;
   fechaDeHoy: any;
   verAlertaDeHoy: boolean;
-  tokenList= [];
+  tokenList = {};
 
   constructor(
     private authService: AuthService,
@@ -29,32 +29,20 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getTokens();
     this.getCurrentUser();
     this.ultimaActivacion();
-  }
-
-  getTokens(){
-    this.alertsService.getTokens().subscribe(tokensVecinos => {
-      tokensVecinos.forEach((tokenVecino, index:number)=>
-        {
-          if(this.vecinoDataRef.tokenUser !== tokenVecino.tokenUser){
-            this.tokenList[index] = tokenVecino.tokenUser;
-          }
-        });
-    });
   }
 
   getCurrentUser() {
     return this.authService.verSession().subscribe(auth => {
       if (auth) {
         this.alertsService.vecinoUser(auth.uid).subscribe(data => {
+          this.fcm.getPermission(auth.uid, data.tokenUser);
           this.vecinoDataRef = data;
           this.tipoUser = data.tipo;
-          this.fcm.getPermission(auth.uid, data.tokenUser);
+          this.vecinoDataRef.tokenUser = this.fcm.tokenList;
         });
       } else {
-        this.router.navigate(["login"]);
         this.tipoUser = "";
         this.ultimaAlerta = {};
       }
@@ -62,7 +50,6 @@ export class HomeComponent implements OnInit {
   }
 
   help() {
-    this.vecinoDataRef.tokenUser = this.tokenList;
     this.alertsService.addAlert(this.vecinoDataRef);
   }
 
@@ -88,9 +75,7 @@ export class HomeComponent implements OnInit {
       hoy.getDate() + "-" + (hoy.getMonth() + 1) + "-" + hoy.getFullYear();
     if (alertFecha === hoyFecha) {
       this.verAlertaDeHoy = true;
-      this.toastr.info(
-        "Hoy fue activada la alarma revisa tus alertas",
-        "Alerta del Día"
+      this.toastr.info("Hoy fue activada"
       );
     } else {
       this.verAlertaDeHoy = false;
