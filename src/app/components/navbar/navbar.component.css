@@ -1,47 +1,114 @@
 nav {
-  background-color: #000000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(61, 33, 38);
+  padding: 2% 10%;
+  text-transform: uppercase;
 }
 
-nav ul li {
-  display: inline;
-  list-style: none;
-}
-
-.logo {
-  font-size: 1.2em;
+nav a {
+  text-decoration: none;
   color: whitesmoke;
-  text-decoration-line: none;
-}
-
-.ayuda {
-  margin-top: 12%;
-}
-
-.logged {
-  margin-top: 7%;
-}
-
-nav li a {
-  margin-right: 25px;
-  color: whitesmoke;
-  opacity: 0.5;
+  font-weight: bold;
   cursor: pointer;
 }
 
-nav li a:hover {
-  opacity: 0.9;
+nav a:hover {
+  color: whitesmoke;
+  opacity: 0.6;
 }
 
-@media screen and (max-width: 450px) {
-  .logo span {
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 18px;
+  color: whitesmoke;
+  font-weight: bold;
+  width: 50%;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.menu li {
+  margin-inline-end: 12%;
+  padding-top: 2%;
+  list-style: none;
+  font-size: 14px;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  background-color: whitesmoke;
+  width: 20px;
+  height: 3px;
+  margin: 5px;
+  transition: all 0.4s ease;
+}
+
+@media screen and (max-width: 650px) {
+  nav {
+    justify-content: space-around;
+  }
+
+  .logo {
+    font-size: 12px;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  .menu {
+    width: 10%;
+  }
+
+  .menu li {
     display: none;
   }
+
+  .burger {
+    display: block;
+  }
+
+  .nav-active {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    height: 90vh;
+    top: 6vh;
+    background-color: rgb(61, 33, 38);
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transition: all 0.7s ease;
+  }
+
+  .nav-active li {
+    display: block;
+    transition-duration: 1s;
+    font-size: 12px;
+  }
 }
 
-@media screen and (max-width: 331px) {
-    .logged {
-        margin-top: -12%;
-        margin-left: 10px;
-    }
-  }
-  
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}

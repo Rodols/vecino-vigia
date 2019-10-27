@@ -1,28 +1,30 @@
-<nav class="navbar navbar-dark">
-    <div class="container">
-        <section>
-            <a class="logo" href="home">
-                <img src="../../../assets/imagenes/help3.png" width="30" height="30">
-                <span> Vecino-Vigía </span>
-            </a>
-        </section>
-        <section>
-            <ul class="logged" *ngIf="isLogged">
-                <li>
-                    <a data-toggle="modal" title="Historial de alertas" data-target="#infoAlertas">Alertas</a>
-                </li>
-                <li *ngIf="tipoUser == 'admin'">
-                    <a data-toggle="modal" data-target="#addVecino">Nuevo</a>
-                </li>
-                <li>
-                    <a title="Cerrar Session" (click)="outLogin();">Salir</a>
-                </li>
-            </ul>
-            <ul class="ayuda" *ngIf="!isLogged">
-                <li>
-                    <a data-toggle="modal" data-target="#infoAyuda">¿Ayuda?</a>
-                </li>
-            </ul>
-        </section>
+<nav>
+    <div class="logo">
+        <a href="home">
+            <img src="../../../assets/imagenes/help3.png" height="35">
+            <span> Vecino-Vigía </span>
+        </a>
+    </div>
+    <ul class="menu" *ngIf="isLogged">
+        <li>
+            <a data-toggle="modal" title="Historial de alertas" data-target="#infoAlertas">Alertas</a>
+        </li>
+        <li *ngIf="tipoUser == 'admin'">
+            <a data-toggle="modal" data-target="#addVecino">Nuevo</a>
+        </li>
+        <li>
+            <a title="Cerrar Session" (click)="outLogin();">Salir</a>
+        </li>
+    </ul>
+    <ul class="menu" *ngIf="!isLogged">
+        <li>
+            <a data-toggle="modal" data-target="#infoAyuda">¿Ayuda?</a>
+        </li>
+    </ul>
+
+    <div class="burger" (click)= "menu();">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
     </div>
 </nav>
