@@ -1,16 +1,18 @@
 <div class="section">
-    <div *ngIf="verAlertaDeHoy && ultimaAlerta " class="card text-center mt-4 col-xs-12 col-sm-6 col-md-6 mx-auto">
+    <div *ngIf="verAlertaDeHoy && ultimaAlerta " class="card text-center mx-auto">
         <div class="card-header">
-            <h5 class="card-title  text-danger">Ultima Alerta! <br>
-                {{ultimaAlerta.fecha | date: 'dd-MMM-y hh:mm a'}}</h5>
+            <p class="card-title  text-danger">Ultima Alerta! <br>
+                {{ultimaAlerta.fecha | date: 'dd-MMM-y hh:mm a'}}</p>
         </div>
         <div class="card-body ">
-            <h6 class="card-text "> {{ultimaAlerta.nombre}} necesita tu ayuda su dirección es {{ultimaAlerta.calle}}
-                #{{ultimaAlerta.casa}} y su celular {{ultimaAlerta.celular}} </h6>
+            <p class="card-text "> {{ultimaAlerta.nombre}} necesita tu ayuda su dirección es {{ultimaAlerta.calle}}
+                #{{ultimaAlerta.casa}} y su celular {{ultimaAlerta.celular}} </p>
         </div>
     </div>
-    <img class="mt-1" title="Presiona para pedir ayuda" src="../../../assets/imagenes/help3.png" (click)="help();">
-    <p> {{ vecinoDataRef.nombre }} necesitas ayuda presiona el boton <span class="help">HELP.</span></p>
+    <div class="btn-help">
+       <img class="mt-1" title="Presiona para pedir ayuda" src="../../../assets/imagenes/help3.png" (click)="help();">
+    <p> {{ vecinoDataRef.nombre }} necesitas ayuda presiona el boton <span class="help">HELP.</span></p>  
+    </div>
     <div *ngIf="tipoUser == 'admin'">
         <app-modal-vecino></app-modal-vecino>
     </div>
